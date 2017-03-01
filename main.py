@@ -1,6 +1,7 @@
-import nussl, os, requests
+import nussl, os, requests, matplotlib.pyplot as plt
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
+matplotlib.use('Agg')
 
 allowedExtensions = set(['wav'])
 
