@@ -1,2 +1,2 @@
-# See Major: An audio visualizer
+# See Major: An Audio Visualizer
 Allison Sun and Lily Zhang
