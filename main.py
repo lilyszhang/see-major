@@ -1,6 +1,6 @@
-import matplotlib.pyplot as plt
+import matplotlib
 matplotlib.use('Agg')
-import nussl, os, requests
+import nussl, librosa, os, requests
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 
