@@ -3,9 +3,9 @@
   <head>
     <title>See Major: Audio Visualizer</title>
     <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800|Londrina+Outline' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/icons.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/icons.css')}}">
   </head>
 
   <body>
@@ -13,7 +13,7 @@
       <div class="header">
         <h1 class="title">See Major</h1>
       </div>
-      <audio id="audioElement" src="../audio/kanye.mp3" preload="auto"></audio>
+      <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
   		<ol class="grid">
   			<li class="grid__item">
   				<button class="icobutton play-button" onclick="togglePlay()"><span class="fa fa-play"></span></button>
@@ -28,9 +28,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="../js/visualize.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/mo.min.js"></script>
-    <script src="../js/demo.js"></script>
+    <script src="{{ url_for('static',filename='js/visualize.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/mo.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/demo.js') }}></script>
   </body>
 </html>

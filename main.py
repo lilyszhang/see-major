@@ -12,7 +12,12 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in allowedExtensions
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/upload', methods = ['GET', 'POST'])
 def uploading_file():
    if request.method == 'POST':
         # check if the post request has the file part
@@ -42,7 +47,7 @@ def separate(audio):
     songRepet = nussl.Repet(song)
     songRepet.run()
     bg, fg = songRepet.make_audio_signals()
-    bg.write_audio_to_file('bg.wav')
-    fg.write_audio_to_file('fg.wav')
-    song.write_audio_to_file('song.wav')
+    bg.write_audio_to_file('static/audio/bg.wav')
+    fg.write_audio_to_file('static/audio/fg.wav')
+    song.write_audio_to_file('static/audio/song.wav')
     return render_template('index.html')
