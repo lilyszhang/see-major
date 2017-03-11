@@ -9,12 +9,42 @@ $(document).ready(function () {
   source.connect(analyser); //connect output of audioElement to input of analyser
   source.connect(audioCtx.destination);
 
-  var frequencyData = new Uint8Array(250); //where frequency data will be copied into
+  var frequencyData = new Uint8Array(50); //where frequency data will be copied into
+
+  var svgHeight = '640';
+  var svgWidth = '1450';
+  var barPadding = '2';
+
+  function createSvg(parent, height, width) {
+    return d3.select(parent).append('svg').attr('height', height).attr('width', width);
+  }
+
+  var svg = createSvg('body', svgHeight, svgWidth);
+
+  svg.selectAll('rect')
+     .data(frequencyData)
+     .enter()
+     .append('rect')
+     .attr('x', function (d, i) {
+        return i * (svgWidth / frequencyData.length);
+     })
+     .attr('width', svgWidth / frequencyData.length - barPadding);
 
   function getData() {
      requestAnimationFrame(getData);
-     analyser.getByteFrequencyData(frequencyData); //copy data into frequencyData array
-     console.log(frequencyData)
+     analyser.getByteFrequencyData(frequencyData);
+
+     svg.selectAll('rect')
+        .data(frequencyData)
+        .attr('y', function(d) {
+           return svgHeight - d;
+        })
+        .attr('height', function(d) {
+           return d;
+        })
+        .attr('fill', function(d) {
+           return 'rgb(100, 50, ' + d + ')';
+        });
   }
   getData();
 });
