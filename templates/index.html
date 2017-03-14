@@ -15,12 +15,12 @@
         <h1 class="title">See Major</h1>
       </div>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
-      <div class="box">
+      <!-- <div class="box">
 					<input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple />
 					<label for="file-1">
             <span>Choose a file</span>
           </label>
-			</div>
+			</div> -->
   		<ol class="grid">
   			<li class="grid__item">
   				<button class="icobutton play-button" onclick="togglePlay()"><span class="fa fa-play"></span></button>
@@ -38,7 +38,7 @@
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
     <script src="{{ url_for('static',filename='js/mo.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/demo.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/visualize.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bar.js') }}"></script>
     <script src="{{ url_for('static',filename='js/custom-file-input.js') }}"></script>
   </body>
 </html>

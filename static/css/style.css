@@ -10,6 +10,10 @@ body {
   width:100%;*/
 }
 
+.grid {
+  margin-bottom: -125px;
+}
+
 .header {
 	position: relative;
   padding-bottom: 55px;
