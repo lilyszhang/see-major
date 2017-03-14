@@ -12,6 +12,20 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in allowedExtensions
 
+def separate(audio):
+    '''Performs REPET on .wav file and creates three .wav files in path directory'''
+    song = nussl.AudioSignal(audio)
+    songRepet = nussl.Repet(song)
+    songRepet.run()
+    bg, fg = songRepet.make_audio_signals()
+    song = bg + fg
+    bg.write_audio_to_file('static/audio/bg.wav')
+    fg.write_audio_to_file('static/audio/fg.wav')
+    song.write_audio_to_file('static/audio/song.wav')
+    return render_template('index.html')
+    
+#app.run(threaded=True)
+
 @app.route('/info')
 def index():
     return render_template('index.html')
@@ -39,18 +53,7 @@ def uploading_file():
             return separate(str(filename)) #redirect(url_for('uploaded_file', filename=filename))
         else:
             return 'Unable to Upload File'
-   return render_template('upload.html')
+   return render_template('index.html')
 
 if __name__ == '__main__':
    app.run(debug = True)
-
-def separate(audio):
-    '''Performs REPET on .wav file and creates three .wav files in path directory'''
-    song = nussl.AudioSignal(audio)
-    songRepet = nussl.Repet(song)
-    songRepet.run()
-    bg, fg = songRepet.make_audio_signals()
-    bg.write_audio_to_file('static/audio/bg.wav')
-    fg.write_audio_to_file('static/audio/fg.wav')
-    song.write_audio_to_file('static/audio/song.wav')
-    return render_template('index.html')

@@ -1,15 +1,3 @@
-//shape changes on each beat (librosa beat tracking)
-//make shape that shows frequency more
-//more contrast in peaks
-//color contrast
-
-//24 by 36
-//mention packages
-//next steps
-//technical implementation
-//screenshots
-
-
 //https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 $(document).ready(function () {
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -23,8 +11,8 @@ $(document).ready(function () {
 
   var frequencyData = new Uint8Array(50); //where frequency data will be copied into
 
-  var svgHeight = $(window).height();
-  var svgWidth = $(window).width();
+  var svgHeight = '440';
+  var svgWidth = '1450';
   var barPadding = '2';
 
   function createSvg(parent, height, width) {
@@ -49,13 +37,13 @@ $(document).ready(function () {
      svg.selectAll('rect')
         .data(frequencyData)
         .attr('y', function(d) {
-           return 0.5* (svgHeight - d);
+           return svgHeight - d;
         })
         .attr('height', function(d) {
-           return d*1.5;
+           return d;
         })
         .attr('fill', function(d) {
-           return 'rgb('+ d + ', 0, 0)';
+           return 'rgb(' + d + ', 0, 0)';
         });
   }
   getData();
