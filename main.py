@@ -12,10 +12,13 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in allowedExtensions
 
-@app.route('/')
+@app.route('/info')
 def index():
     return render_template('index.html')
 
+@app.route('/')
+def info():
+    return render_template('website.html')
 
 @app.route('/upload', methods = ['GET', 'POST'])
 def uploading_file():
