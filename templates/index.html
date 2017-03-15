@@ -17,8 +17,9 @@
       <div class="header">
           <div><h1 class="title">See Major</h1></div>
           <div><select id="audioSelect" class="cs-select cs-skin-rotate">
-            <option value="1">No More Parties in LA - Kanye West</option>
-  					<option value="2">Shake It Off - Taylor Swift</option>
+            <option value="1">Kanye West</option>
+  					<option value="2">Taylor Swift</option>
+            <option value="3">Yeezer</option>
           </select></div>
       </div>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
@@ -32,13 +33,13 @@
       </div>
 
       <ol class="grid">
-  			<li class="grid__item">
+  			<li class="grid__item btn">
   				<button class="icobutton play-button" onclick="togglePlay()"><span class="fa fa-play"></span></button>
   			</li>
-        <li>
+        <li class="btn">
           <button class="icobutton volume" onclick="document.getElementById('audioElement').volume-=0.1"><span class="fa fa-minus"></span></button>
         </li>
-        <li>
+        <li class="btn">
           <button class="icobutton volume" onclick="document.getElementById('audioElement').volume+=0.1"><span class="fa fa-plus"></span></button>
         </li>
   		</ol>

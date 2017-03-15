@@ -63,8 +63,11 @@
 		    audioElement.src = '/static/audio/kanye.mp3';
 		  }
 		  if (val == "2") {
-		    audioElement.src = '/static/audio/swift.wav';
+		    audioElement.src = '/static/audio/swift.mp3';
 		  }
+			if (val == "3") {
+				audioElement.src = '/static/audio/yeezer.mp3';
+			}
 		  audioElement.load();
 		}
 	}
