@@ -13,7 +13,11 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1 class="title">See Major</h1>
+        <!--<h1 class="title">See Major</h1>-->
+        <select id="audioSelect" onchange="updateSong()">
+          <option value="1" selected="selected">Kanye</option>
+          <option value="2">TSwift</option>
+        </select>
       </div>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
       <!-- <div class="box">
