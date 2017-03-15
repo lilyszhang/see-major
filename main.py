@@ -23,7 +23,7 @@ def separate(audio):
     fg.write_audio_to_file('static/audio/fg.wav')
     song.write_audio_to_file('static/audio/song.wav')
     return render_template('index.html')
-    
+
 #app.run(threaded=True)
 
 @app.route('/info')

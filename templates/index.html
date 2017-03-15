@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cs-select.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cs-skin-rotate.css')}}">
 
     <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
   </head>
@@ -13,20 +15,23 @@
   <body>
     <div class="container">
       <div class="header">
-        <!--<h1 class="title">See Major</h1>-->
-        <select id="audioSelect" onchange="updateSong()">
-          <option value="1" selected="selected">Kanye</option>
-          <option value="2">TSwift</option>
-        </select>
+          <div><h1 class="title">See Major</h1></div>
+          <div><select id="audioSelect" class="cs-select cs-skin-rotate">
+            <option value="1">No More Parties in LA - Kanye West</option>
+  					<option value="2">Shake It Off - Taylor Swift</option>
+          </select></div>
       </div>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
-      <!-- <div class="box">
-					<input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" multiple />
-					<label for="file-1">
-            <span>Choose a file</span>
-          </label>
-			</div> -->
-  		<ol class="grid">
+      <div>
+        <br><br><br>
+          <select id="vizSelect">
+            <option value="1" selected="selected">Bar</option>
+            <option value="2">Circle</option>
+          </select>
+        <br><br><br><br>
+      </div>
+
+      <ol class="grid">
   			<li class="grid__item">
   				<button class="icobutton play-button" onclick="togglePlay()"><span class="fa fa-play"></span></button>
   			</li>
@@ -38,12 +43,22 @@
         </li>
   		</ol>
     </div>
+    <div id="visualizer"></div>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
     <script src="{{ url_for('static',filename='js/mo.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/demo.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/bar.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/custom-file-input.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/visualize.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/classie.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/selectFx.js') }}"></script>
+    <script>
+			(function() {
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+					new SelectFx(el);
+				} );
+			})();
+		</script>
+
   </body>
 </html>

@@ -9,42 +9,102 @@ $(document).ready(function () {
   source.connect(analyser); //connect output of audioElement to input of analyser
   source.connect(audioCtx.destination);
 
-  var frequencyData = new Uint8Array(50); //where frequency data will be copied into
+  var animationToggle;
 
-  var svgHeight = '440';
-  var svgWidth = '1450';
-  var barPadding = '2';
+  function bar() {
 
-  function createSvg(parent, height, width) {
-    return d3.select(parent).append('svg').attr('height', height).attr('width', width);
-  }
+      $("#visualizer").children().remove();
+      var frequencyData = new Uint8Array(50); //where frequency data will be copied into
 
-  var svg = createSvg('body', svgHeight, svgWidth);
+      var svgHeight = 2*$(window).height()/3;
+      var svgWidth = $(window).width();
+      var barPadding = '2';
 
-  svg.selectAll('rect')
-     .data(frequencyData)
-     .enter()
-     .append('rect')
-     .attr('x', function (d, i) {
-        return i * (svgWidth / frequencyData.length);
-     })
-     .attr('width', svgWidth / frequencyData.length - barPadding);
+      var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight).attr('width', svgWidth);
 
-  function getData() {
-     requestAnimationFrame(getData);
-     analyser.getByteFrequencyData(frequencyData);
+      svg.selectAll('rect')
+         .data(frequencyData)
+         .enter()
+         .append('rect')
+         .attr('x', function (d, i) {
+            return i * (svgWidth / frequencyData.length);
+         })
+         .attr('width', svgWidth / frequencyData.length - barPadding);
 
-     svg.selectAll('rect')
-        .data(frequencyData)
-        .attr('y', function(d) {
-           return svgHeight - d;
-        })
-        .attr('height', function(d) {
-           return d;
-        })
-        .attr('fill', function(d) {
-           return 'rgb(' + d + ', 0, 0)';
+      function getData() {
+         requestAnimationFrame(getData);
+         analyser.getByteFrequencyData(frequencyData);
+
+         svg.selectAll('rect')
+            .data(frequencyData)
+            .attr('y', function(d) {
+               return svgHeight - d;
+            })
+            .attr('height', function(d) {
+               return d;
+            })
+            .attr('fill', function(d) {
+               return 'rgb(' + d + ', 0, 0)';
+            });
+      }
+      animationToggle = requestAnimationFrame(getData);
+    }
+
+    function circle() {
+      $("#visualizer").children().remove();
+      var frequencyData = new Uint8Array(350);
+
+      var svgWidth = $(window).width();
+      var svgHeight = $(window).height();
+      // var svgHeight = '800';
+      // var svgWidth = '800';
+
+      var svg = d3.select('#visualizer').append('svg')
+        .attr({
+          height: svgHeight,
+          width: svgWidth
         });
-  }
-  getData();
+
+      function getData() {
+        requestAnimationFrame(getData);
+        analyser.getByteFrequencyData(frequencyData);
+
+        var radiusScale = d3.scale.linear()
+          .domain([0, d3.max(frequencyData)])
+          .range([0, svgHeight-50]);
+
+        var hueScale = d3.scale.linear()
+          .domain([0, d3.max(frequencyData)])
+          .range([335, 355]);
+
+        var circles = svg.selectAll('circle')
+          .data(frequencyData);
+
+        circles.enter().append('circle');
+
+        circles
+          .attr({
+            r: function(d) {
+                return radiusScale(d); },
+            cx: svgWidth / 2,
+            cy: svgHeight / 2,
+            fill: 'none',
+                  'stroke-width': 9,
+                  'stroke-opacity': 0.2,
+            stroke: function(d) {
+                      return d3.hsl(hueScale(d), 1, 0.5); }});
+
+        circles.exit().remove();
+      }
+      animationToggle = requestAnimationFrame(getData);
+    }
+    bar();
+    $('#vizSelect').on('change', function() {
+      if (this.value == "1") {
+        bar();
+      }
+      if (this.value == "2") {
+        circle();
+      }
+    })
 });
