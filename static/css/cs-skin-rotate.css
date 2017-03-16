@@ -1,19 +1,8 @@
-@font-face {
-	font-family: 'icomoon';
-	src:url('../icomoon/icomoon.eot?-rdnm34');
-	src:url('../icomoon/icomoon.eot?#iefix-rdnm34') format('embedded-opentype'),
-		url('../icomoon/icomoon.woff?-rdnm34') format('woff'),
-		url('../icomoon/icomoon.ttf?-rdnm34') format('truetype'),
-		url('../icomoon/icomoon.svg?-rdnm34#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 div.cs-skin-rotate {
 	background: transparent;
-	font-size: 1.5em;
+	font-size: 1em;
 	font-weight: 700;
-	width: 300px;
+	width: 200px;
 	-webkit-perspective: 1000px;
 	perspective: 1000px;
 }

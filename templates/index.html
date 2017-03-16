@@ -16,23 +16,8 @@
 
   <body>
     <div class="container">
-      <div class="header">
-          <div><h1 class="title">See Major</h1></div>
-      </div>
+      <h1 class="title">See Major</h1>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
-      <!--<div>
-        <br><br><br>
-          <select id="vizSelect">
-            <option value="1" selected="selected">Bar</option>
-            <option value="2">Circle</option>
-          </select>
-        <br><br><br><br>
-      </div>-->
-      <!--<div>
-        <button id="bar" class="button button--wayra button--border-thick button--text-upper button--size-s">Bar</button>
-        <button id="circle" class="button button--wayra button--border-thick button--text-upper button--size-s">Circle</button><br><br><br><br>
-      </div>-->
-
       <ol class="grid">
   			<li class="grid__item btn">
   				<button id="play" class="icobutton play-button" onclick="togglePlay()"><span class="fa fa-play"></span></button>
@@ -51,12 +36,11 @@
           </select>
         </li>
         <li class="btn">
-          <button id="bar" class="button button--wayra button--border-thick button--text-upper button--size-s">Bar</button>
+          <button id="bar" class="button button--wayra button--border-medium button--size-s">Bars</button>
         </li>
         <li class="btn">
-          <button id="circle" class="button button--wayra button--border-thick button--text-upper button--size-s">Circle</button><br><br><br><br>
+          <button id="circle" class="button button--wayra button--border-medium button--size-s">Circle</button>
         </li>
-
   		</ol>
     </div>
     <div id="visualizer"></div>
