@@ -35,6 +35,7 @@ $(document).ready(function () {
       function getData() {
          requestAnimationFrame(getData);
          analyser.getByteFrequencyData(frequencyData);
+         console.log(frequencyData);
 
          svg.selectAll('rect')
             .data(frequencyData)
@@ -99,6 +100,41 @@ $(document).ready(function () {
       }
       animationToggle = requestAnimationFrame(getData);
     }
+
+    function waveform() {
+      $("#visualizer").children().remove();
+
+      var frequencyData = new Uint8Array(50)
+
+      var svgWidth = $(window).width();
+      var svgHeight = $(window).height();
+
+      var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight/2).attr('width', svgWidth).attr('transform', "translate(0, " + svgHeight / 2 + ")");
+
+      function getData() {
+        requestAnimationFrame(getData);
+        analyser.getByteFrequencyData(frequencyData);
+        console.log(frequencyData);
+
+        var xScale = d3.scale.linear()
+            .range([0, svgWidth])
+            .domain([0, numberOfPoints]);
+
+        var yScale = d3.scale.linear()
+            .range([svgHeight, 0])
+            .domain([-1, 1]);
+
+        var line = d3.svg.line()
+            .x(function(d, i) { return xScale(i); })
+            .y(function(d, i) { return yScale(d); });
+
+        svg.selectAll('path')
+          .data(frequencyData)
+          .attr('d', line)
+      }
+      animationToggle = requestAnimationFrame(getData);
+    }
+
     var viz = 1
     $('.play-button').click(function () {
         $(this).toggleClass('highlight')
@@ -111,23 +147,22 @@ $(document).ready(function () {
       if (viz ==2) {
         circle();
       }
-      // randomToggle= 1;
+      if (viz == 3) {
+        waveform();
+      }
     });
-    /*$('#vizSelect').on('change', function() {
-      if (this.value == "1") {
-        bar();
-      }
-      if (this.value == "2") {
-        circle();
-      }
-    })*/
+
     $('#bar').on("click", function(){
       bar();
+      $(this).addClass('highlight')
+      $('#circle').removeClass('highlight')
       viz = 1;
     });
 
     $('#circle').on("click", function(){
       circle();
+      $(this).addClass('highlight')
+      $('#bar').removeClass('highlight')
       viz = 2;
     });
 

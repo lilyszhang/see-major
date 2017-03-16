@@ -24,9 +24,7 @@ def separate(audio):
     song.write_audio_to_file('static/audio/song.wav')
     return render_template('index.html')
 
-#app.run(threaded=True)
-
-@app.route('/info')
+@app.route('/app')
 def index():
     return render_template('index.html')
 

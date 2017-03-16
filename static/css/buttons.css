@@ -100,7 +100,7 @@
 .button--wayra.button--inverted:hover::before {
 	background-color: #fff;
 }
-.button--wayra:focus {
+.button--wayra.highlight {
 	color: #fff;
 	background-color: #ff5c5c;
 	border-color: #ff5c5c

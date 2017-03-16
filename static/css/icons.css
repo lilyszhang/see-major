@@ -12,7 +12,9 @@
 }
 
 .play-button{
+	color:#2e3c40;
 	padding: 0;
+	outline: none;
 }
 
 .play-button.highlight{
@@ -23,6 +25,7 @@
 .volume{
 	padding-left: 35px;
 	padding-right: 15px;
+	outline: none;
 }
 
 .volume:active{

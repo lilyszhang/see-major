@@ -50,7 +50,7 @@
 	 * SelectFx options
 	 */
 	var audioElement = document.getElementById("audioElement");
-
+	var play = document.getElementById('play');
 	SelectFx.prototype.options = {
 		// if true all the links will open in a new tab.
 		// if we want to be redirected when we click an option, we need to define a data-link attr on the option of the native select element
@@ -69,6 +69,7 @@
 				audioElement.src = '/static/audio/yeezer.mp3';
 			}
 		  audioElement.load();
+			play.classList.remove('highlight')
 		}
 	}
 
