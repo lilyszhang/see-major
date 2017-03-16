@@ -1,5 +1,6 @@
 //https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 $(document).ready(function () {
+
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   var analyser = audioCtx.createAnalyser(); //AnalyserNode allows us to get frequency data
 
@@ -44,7 +45,7 @@ $(document).ready(function () {
                return d;
             })
             .attr('fill', function(d) {
-               return 'rgb(' + d + ', 0, 0)';
+               return 'rgb(255, 92, '+ 2*Math.floor(d/3) +')';
             });
       }
       animationToggle = requestAnimationFrame(getData);
@@ -98,13 +99,42 @@ $(document).ready(function () {
       }
       animationToggle = requestAnimationFrame(getData);
     }
-    bar();
-    $('#vizSelect').on('change', function() {
+    var viz = 1
+    $('.play-button').click(function () {
+        $(this).toggleClass('highlight')
+    })
+
+    $('.play-button').on("click", function(){
+      if (viz == 1) {
+        bar();
+      }
+      if (viz ==2) {
+        circle();
+      }
+      // randomToggle= 1;
+    });
+    /*$('#vizSelect').on('change', function() {
       if (this.value == "1") {
         bar();
       }
       if (this.value == "2") {
         circle();
       }
-    })
+    })*/
+    $('#bar').on("click", function(){
+      bar();
+      viz = 1;
+    });
+
+    $('#circle').on("click", function(){
+      circle();
+      viz = 2;
+    });
+
 });
+
+var audioElement = document.getElementById("audioElement");
+audioElement.loop = true;
+function togglePlay() {
+  return audioElement.paused ? audioElement.play() : audioElement.pause();
+};

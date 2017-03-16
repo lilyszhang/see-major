@@ -14,7 +14,7 @@
 	padding: 0;
 }
 
-.icobutton:hover{
+.play-button.highlight{
 	color:#ff5c5c;
 	outline: none;
 }
@@ -22,4 +22,9 @@
 .volume{
 	padding-left: 35px;
 	padding-right: 15px;
+}
+
+.volume:active{
+	color:#ff5c5c;
+	outline: none;
 }
