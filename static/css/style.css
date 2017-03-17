@@ -19,8 +19,31 @@ body {
 	letter-spacing: 0.1em;
   padding-left: 40px;
   padding-bottom: 0px;
+  margin-top: 15px;
 	text-transform: uppercase;
   font-family: Raleway, sans-serif;
+  display:inline-block
+}
+
+.text {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: -100px;
+  margin-top: 19px;
+}
+
+.song {
+  margin-top: 10px;
+  margin-left: 285px;
+}
+
+.audio {
+  margin-left: 180px;
+}
+
+.viz {
+  margin-left: 240px;
 }
 
 li.btn {

@@ -16,6 +16,9 @@
   <body>
     <div class="container">
       <h1 class="title">See Major<a href="/"><span class="fa fa-info-circle"></span></a></h1>
+      <div class="text song">Song</div>
+      <div class="text audio">Audio Source</div>
+      <div class="text viz">Visualization</div>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
       <ol class="grid">
   			<li class="grid__item btn">
@@ -39,16 +42,16 @@
           </select>
         </li>
         <li class="btn">
-          <button id="original" class="button button--wayra button--border-medium button--size-s highlight">Original</button>
+					<button class="button button--wayra button--border-medium button--size-s highlight"><span>Original</span></button>
+				</li>
+        <li class="btn">
+          <button id="background" class="button button--wayra button--border-medium button--size-s">Background</button>
         </li>
         <li class="btn">
-          <button id="background" class="button button--wayra button--border-medium button--size-s ">Background</button>
+          <button id="bar" class="button button--wayra button--border-medium button--size-s highlight"><span class="fa fa-signal"></button>
         </li>
         <li class="btn">
-          <button id="bar" class="button button--wayra button--border-medium button--size-s highlight">Bars</button>
-        </li>
-        <li class="btn">
-          <button id="circle" class="button button--wayra button--border-medium button--size-s button--right">Circle</button>
+          <button id="circle" class="button button--wayra button--border-medium button--size-s button--right"><span class="fa fa-circle-o"></button>
         </li>
   		</ol>
     </div>
