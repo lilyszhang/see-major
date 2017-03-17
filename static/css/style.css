@@ -1,11 +1,12 @@
 body {
   font-family:"Raleway", sans-serif;
   color: #2e3c40;
-  background: #fefdf9;
+  background: #fff;
 }
 
 .grid {
   margin-bottom: -125px;
+  padding: 0;
 }
 
 .title {
@@ -26,3 +27,17 @@ li.btn {
   list-style-type: none;
 	display: inline-block;
 };
+
+a:link, a:visited {
+    color: #2e3c40;
+    text-decoration: none;
+}
+a:hover, a:active {
+    color: #ff5c5c;
+    text-decoration: none;
+}
+
+.caption {
+  font-size: 10px;
+  color: #000;
+}

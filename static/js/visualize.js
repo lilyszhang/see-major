@@ -1,21 +1,18 @@
-//https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
 $(document).ready(function () {
 
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  var analyser = audioCtx.createAnalyser(); //AnalyserNode allows us to get frequency data
+  var analyser = audioCtx.createAnalyser();
 
-  //connect AnalyserNode to audio source
   var audioElement = document.getElementById('audioElement');
   var source = audioCtx.createMediaElementSource(audioElement);
-  source.connect(analyser); //connect output of audioElement to input of analyser
+  source.connect(analyser);
   source.connect(audioCtx.destination);
 
   var animationToggle;
 
   function bar() {
-
       $("#visualizer").children().remove();
-      var frequencyData = new Uint8Array(50); //where frequency data will be copied into
+      var frequencyData = new Uint8Array(50);
 
       var svgHeight = 2*$(window).height()/3;
       var svgWidth = $(window).width();
@@ -58,8 +55,6 @@ $(document).ready(function () {
 
       var svgWidth = $(window).width();
       var svgHeight = $(window).height();
-      // var svgHeight = '800';
-      // var svgWidth = '800';
 
       var svg = d3.select('#visualizer').append('svg')
         .attr({
@@ -104,24 +99,30 @@ $(document).ready(function () {
     function waveform() {
       $("#visualizer").children().remove();
 
-      var frequencyData = new Uint8Array(50)
+      var frequencyBinCount = analyser.frequencyBinCount;
+      var frequencyData = new Float32Array(frequencyBinCount);
 
       var svgWidth = $(window).width();
       var svgHeight = $(window).height();
 
-      var svg = d3.select('#visualizer').append('svg').attr('height', svgHeight/2).attr('width', svgWidth).attr('transform', "translate(0, " + svgHeight / 2 + ")");
+      var width = svgWidth;
+      var height = svgHeight;
+      var numberOfPoints = Math.ceil(width / 2);
+
+      var svg = d3.select('#visualizer').append('svg')
+        .attr('height', svgHeight/2).attr('width', svgWidth).attr('transform', "translate(0, " + svgHeight / 2 + ")");
 
       function getData() {
         requestAnimationFrame(getData);
-        analyser.getByteFrequencyData(frequencyData);
-        console.log(frequencyData);
+        //analyser.getByteFrequencyData(frequencyData);
+        analyser.getFloatFrequencyData(frequencyData);
 
         var xScale = d3.scale.linear()
-            .range([0, svgWidth])
+            .range([0, width])
             .domain([0, numberOfPoints]);
 
         var yScale = d3.scale.linear()
-            .range([svgHeight, 0])
+            .range([height, 0])
             .domain([-1, 1]);
 
         var line = d3.svg.line()
@@ -156,6 +157,7 @@ $(document).ready(function () {
       bar();
       $(this).addClass('highlight')
       $('#circle').removeClass('highlight')
+      $('#waveform').removeClass('highlight')
       viz = 1;
     });
 
@@ -163,7 +165,16 @@ $(document).ready(function () {
       circle();
       $(this).addClass('highlight')
       $('#bar').removeClass('highlight')
+      $('#waveform').removeClass('highlight')
       viz = 2;
+    });
+
+    $('#waveform').on("click", function(){
+      waveform();
+      $(this).addClass('highlight')
+      $('#bar').removeClass('highlight')
+      $('#circle').removeClass('highlight')
+      viz = 3;
     });
 
 });

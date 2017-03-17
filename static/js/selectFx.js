@@ -68,6 +68,9 @@
 			if (val == "3") {
 				audioElement.src = '/static/audio/yeezer.mp3';
 			}
+			if (val == "4") {
+				audioElement.src = '/static/audio/redbone.mp3';
+			}
 		  audioElement.load();
 			play.classList.remove('highlight')
 		}

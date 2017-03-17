@@ -1,4 +1,4 @@
-.icobutton{
+.icobutton {
 	font-size: 2.5em;
 	position: relative;
 	margin: 0;
@@ -11,24 +11,31 @@
 	display: inline-block;
 }
 
-.play-button{
-	color:#2e3c40;
+.play-button {
+	color: #2e3c40;
 	padding: 0;
 	outline: none;
+	margin-left: 25px;
 }
 
-.play-button.highlight{
-	color:#ff5c5c;
+.play-button.highlight {
+	color: #ff5c5c;
 	outline: none;
 }
 
-.volume{
+.volume {
 	padding-left: 35px;
 	padding-right: 15px;
 	outline: none;
 }
 
-.volume:active{
-	color:#ff5c5c;
+.volume:active {
+	color: #ff5c5c;
 	outline: none;
+}
+
+.fa-info-circle {
+	color: #2e3c40;
+	font-size: 0.7em;
+	margin-left: 5px;
 }

@@ -10,13 +10,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cs-skin-rotate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/buttons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/normalize.css')}}">
-
     <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
   </head>
 
   <body>
     <div class="container">
-      <h1 class="title">See Major</h1>
+      <h1 class="title">See Major<a href="/"><span class="fa fa-info-circle"></span></a></h1>
       <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
       <ol class="grid">
   			<li class="grid__item btn">
@@ -33,6 +32,7 @@
             <option value="1">Kanye West</option>
   					<option value="2">Taylor Swift</option>
             <option value="3">Yeezer</option>
+            <option value="4">Childish Gambino</option>
           </select>
         </li>
         <li class="btn">
@@ -40,6 +40,9 @@
         </li>
         <li class="btn">
           <button id="circle" class="button button--wayra button--border-medium button--size-s">Circle</button>
+        </li>
+        <li class="btn">
+          <button id="waveform" class="button button--wayra button--border-medium button--size-s">Waveform</button>
         </li>
   		</ol>
     </div>
@@ -56,6 +59,5 @@
 				} );
 			})();
 		</script>
-
   </body>
 </html>
