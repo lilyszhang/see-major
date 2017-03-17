@@ -71,6 +71,15 @@
 			if (val == "4") {
 				audioElement.src = '/static/audio/redbone.mp3';
 			}
+			if (val == "5") {
+				audioElement.src = '/static/audio/muramasa.mp3';
+			}
+			if (val == "6") {
+				audioElement.src = '/static/audio/jamiexx.mp3';
+			}
+			if (val == "7") {
+				audioElement.src = '/static/audio/noname.mp3';
+			}
 		  audioElement.load();
 			play.classList.remove('highlight')
 		}
