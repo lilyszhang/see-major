@@ -35,6 +35,16 @@
 	vertical-align: middle;
 }
 
+/*.button--right {
+	margin-left: 0.5em;
+	margin-right: 1em;
+}*/
+
+/*.button--left {
+	margin-left: 6em;
+	margin-right: 0.5em;
+}*/
+
 /* Sizes */
 .button--size-s {
 	font-size: 1em;;
