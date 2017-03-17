@@ -59,6 +59,8 @@
 		stickyPlaceholder : true,
 		// callback when changing the value
 		onChange : function( val ) {
+			$('#original').addClass('highlight');
+      $('#background').removeClass('highlight')
 			if (val == "1") {
 		    audioElement.src = '/static/audio/kanye.mp3';
 		  }

@@ -42,7 +42,7 @@ $(document).ready(function () {
                return d;
             })
             .attr('fill', function(d) {
-               return 'rgb(255, 92, '+ 2*Math.floor(d/3) +')';
+               return 'rgb(255, '+ d +', 92)';
             });
       }
       animationToggle = requestAnimationFrame(getData);
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
         var hueScale = d3.scale.linear()
           .domain([0, d3.max(frequencyData)])
-          .range([335, 355]);
+          .range([300, 420]);
 
         var circles = svg.selectAll('circle')
           .data(frequencyData);
@@ -177,6 +177,27 @@ $(document).ready(function () {
       //$('#waveform').removeClass('highlight')
       viz = 2;
     });
+
+    var audioElement = document.getElementById("audioElement");
+
+    $('#original').on("click", function() {
+      var source = audioElement.src;
+      $(this).addClass('highlight');
+      $('#background').removeClass('highlight')
+      audioElement.src = source.replace('bg', '');
+      audioElement.load();
+      audioElement.play();
+    });
+
+    $('#background').on("click", function() {
+      var source = audioElement.src;
+      $(this).addClass('highlight');
+      $('#original').removeClass('highlight');
+      audioElement.src = source.replace(/(\.[\w\d_-]+)$/i, 'bg$1');
+      audioElement.load();
+      audioElement.play();
+    });
+
 
     /*$('#waveform').on("click", function(){
       waveform();
