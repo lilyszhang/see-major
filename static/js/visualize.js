@@ -193,6 +193,7 @@ $(document).ready(function () {
       var source = audioElement.src;
       $(this).addClass('highlight');
       $('#original').removeClass('highlight');
+      $('#play').addClass('highlight');
       audioElement.src = source.replace(/(\.[\w\d_-]+)$/i, 'bg$1');
       audioElement.load();
       audioElement.play();
