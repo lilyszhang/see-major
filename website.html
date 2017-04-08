@@ -9,7 +9,7 @@
 		<title>See Major</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css') }}" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 		<link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800|Londrina+Outline' rel='stylesheet' type='text/css'>
 	</head>
 	<body
@@ -48,7 +48,7 @@
 										<h2>SEE MAJOR</h2>
 										<h3>An audio visualizer by Allison Sun and Lily Zhang</h3>
 									</header>
-									<p>Our project, <a class="link" href="./app">See Major</a>, is an audio spectrum visualizer that allows viewers to see visualized frequency data as a song is streamed in real-time. The visualization dynamically changes as the frequency, amplitude, and beat of the audio change. While the concept of an audio visualizer is not new, we want to incorporate features where the user can select to hear and visualize the spectrum of not only the original audio, but also the beat of the song. </p>
+									<p>Our project, <a class="link" href="index.html">See Major</a>, is an audio spectrum visualizer that allows viewers to see visualized frequency data as a song is streamed in real-time. The visualization dynamically changes as the frequency, amplitude, and beat of the audio change. While the concept of an audio visualizer is not new, we want to incorporate features where the user can select to hear and visualize the spectrum of not only the original audio, but also the beat of the song. </p>
 								</div>
 							</section>
 						<!-- Two -->
@@ -64,17 +64,17 @@
 									<h3>Implementation</h3>
 									<p>We started with an audio file and extracted the background audio using NUSSL’s REPET. To get audio data from the songs, we used Web Audio API’s AnalyserNode, which gets streaming FFT frequency data (Figure 1) in an array of values between 0 to 255 that represent the relative volume (magnitude in decibels) at each frequency band. The array changes as different parts of the audio is played since the data corresponds to the sound captured for that exact moment in time.</p>
 									<figure>
-										<img src="../static/images/console.png" style="width: 700px; display: block; margin: auto;">
+										<img src="images/console.png" style="width: 700px; display: block; margin: auto;">
 										<figcaption class="caption" style="color:#000; font-size:12px; text-align: center;">Figure 1: Frequency data returned by Web Audio API's AnalyserNode</figcaption>
 									</figure>
 									<p>To render the data into visualizations, we used D3 to create charts such as the frequency bar graph (Figure 2). The numbers obtained from Web Audio API’s AnalyserNode is used for the dimensions of the graphs. Each element is an SVG element styled using CSS. As the song is played, the frequency data is constantly streaming and the audio spectrum on the interface dynamically updates to create real-time visualizations.</p>
 									<figure>
-										<img src="../static/images/bar.png" style="width: 700px; display: block; margin: auto;">
+										<img src="images/bar.png" style="width: 700px; display: block; margin: auto;">
 										<figcaption class="caption" style="color:#000; font-size:12px; text-align: center;">Figure 2: Frequency data rendered into bar charts</figcaption>
 									</figure>
 									<p>On the web platform, users can choose a song from a preselected playlist to listen and visualize. The song is streamed and the audio spectrum visualizations change according to the part of the music streamed. Users can also alternate between the original audio and the background as the song is playing in real-time to see how the frequency levels differ in different song components.</p>
 									<figure>
-										<img src="../static/images/interface.png" style="width: 700px; display: block; margin: auto;">
+										<img src="images/interface.png" style="width: 700px; display: block; margin: auto;">
 										<figcaption class="caption" style="color:#000; font-size:12px; text-align: center;">Figure 3: Interface with song and visualization selector</figcaption>
 									</figure>
 								</div>
@@ -104,11 +104,11 @@
 					</section>
 			</div>
 		<!-- Scripts -->
-		  <script src="{{ url_for('static',filename='assets/js/jquery.min.js') }}"></script>
-			<script src="{{ url_for('static',filename='assets/js/jquery.scrollzer.min.js') }}"></script>
-			<script src="{{ url_for('static',filename='assets/js/jquery.scrolly.min.js') }}"></script>
-			<script src="{{ url_for('static',filename='assets/js/skel.min.js') }}"></script>
-			<script src="{{ url_for('static',filename='assets/js/util.js') }}"></script>
-			<script src="{{ url_for('static',filename='assets/js/main.js') }}"></script>
+		  <script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 	</body>
 </html>

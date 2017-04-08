@@ -3,23 +3,23 @@
   <head>
     <title>See Major: Audio Visualizer</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800|Londrina+Outline' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/icons.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cs-select.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/cs-skin-rotate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/buttons.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/normalize.css')}}">
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/icons.css">
+    <link rel="stylesheet" type="text/css" href="css/cs-select.css">
+    <link rel="stylesheet" type="text/css" href="css/cs-skin-rotate.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
   </head>
 
   <body>
     <div class="container">
-      <h1 class="title">See Major<a href="/"><span class="fa fa-info-circle"></span></a></h1>
+      <h1 class="title">See Major<a href="website.html"><span class="fa fa-info-circle"></span></a></h1>
       <div class="text song">Song</div>
       <div class="text audio">Audio Source</div>
       <div class="text viz">Visualization</div>
-      <audio id="audioElement" src="{{ url_for('static',filename='audio/kanye.mp3') }}" preload="auto"></audio>
+      <audio id="audioElement" src="audio/kanye.mp3" preload="auto"></audio>
       <ol class="grid">
   			<li class="grid__item btn">
   				<button id="play" class="icobutton play-button" onclick="togglePlay()"><span class="fa fa-play"></span></button>
@@ -58,9 +58,9 @@
     <div id="visualizer"></div>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="{{ url_for('static',filename='js/visualize.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/classie.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/selectFx.js') }}"></script>
+    <script src="js/visualize.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
     <script>
 			(function() {
 				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
