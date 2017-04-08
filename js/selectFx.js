@@ -62,25 +62,25 @@
 			$('#original').addClass('highlight');
       $('#background').removeClass('highlight')
 			if (val == "1") {
-		    audioElement.src = '/static/audio/kanye.mp3';
+		    audioElement.src = 'audio/kanye.mp3';
 		  }
 		  if (val == "2") {
-		    audioElement.src = '/static/audio/swift.mp3';
+		    audioElement.src = 'audio/swift.mp3';
 		  }
 			if (val == "3") {
-				audioElement.src = '/static/audio/yeezer.mp3';
+				audioElement.src = 'audio/yeezer.mp3';
 			}
 			if (val == "4") {
-				audioElement.src = '/static/audio/redbone.mp3';
+				audioElement.src = 'audio/redbone.mp3';
 			}
 			if (val == "5") {
-				audioElement.src = '/static/audio/muramasa.mp3';
+				audioElement.src = 'audio/muramasa.mp3';
 			}
 			if (val == "6") {
-				audioElement.src = '/static/audio/jamiexx.mp3';
+				audioElement.src = 'audio/jamiexx.mp3';
 			}
 			if (val == "7") {
-				audioElement.src = '/static/audio/noname.mp3';
+				audioElement.src = 'audio/noname.mp3';
 			}
 		  audioElement.load();
 			play.classList.remove('highlight')
